@@ -1,10 +1,26 @@
 {
-  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
+  "buildCommand": "pnpm install --no-frozen-lockfile",
   "outputDirectory": "public",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/service-worker.js",
+      "destination": "/uv.sw.js"
+    },
+    {
+      "source": "/uv.bundle.js",
+      "destination": "/uv.bundle.js"
+    },
+    {
+      "source": "/uv.handler.js",
+      "destination": "/uv.handler.js"
+    },
+    {
+      "source": "/uv.client.js",
+      "destination": "/uv.client.js"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
     }
   ]
 }
