@@ -1,11 +1,6 @@
 {
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
   "outputDirectory": "static",
-  "builds": [
-    {
-      "src": "build.js",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
