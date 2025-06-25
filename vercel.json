@@ -1,0 +1,15 @@
+{
+  "outputDirectory": "static",
+  "builds": [
+    {
+      "src": "build.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/static/$1"
+    }
+  ]
+}
