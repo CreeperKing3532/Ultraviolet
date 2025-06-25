@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>flibbertygibbet zizzlewump 9000</title>
+  <style>
+    body {
+      background: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      height: 100vh;
+      margin: 0;
+    }
+    img {
+      width: 150px;
+      margin-bottom: 1.5rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      max-width: 600px;
+      padding: 0.75rem 1rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 10px #00ffa3;
+      background: #222;
+      color: #eee;
+    }
+    input[type="text"]::placeholder {
+      color: #888;
+    }
+    form {
+      width: 100%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Logo" />
+  <form id="proxyForm">
+    <input
+      type="text"
+      id="urlInput"
+      placeholder="Enter URL to proxy (e.g. https://example.com)"
+      autocomplete="off"
+      required
+    />
+  </form>
+
+  <script>
+    const form = document.getElementById('proxyForm');
+    const urlInput = document.getElementById('urlInput');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let url = urlInput.value.trim();
+
+      // Basic URL cleanup: add https if missing
+      if (!url.match(/^https?:\/\//)) {
+        url = 'https://' + url;
+      }
+
+      // Redirect to your UV proxy with the URL as a param or path
+      // Assuming your UV backend expects URLs in query param 'url'
+      const proxyUrl = `/uv.handler.js?url=${encodeURIComponent(url)}`;
+      window.location.href = proxyUrl;
+    });
+  </script>
+</body>
+</html>
