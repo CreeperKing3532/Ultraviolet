@@ -1,26 +1,13 @@
 {
-  "buildCommand": "pnpm install --no-frozen-lockfile",
-  "outputDirectory": "public",
-  "rewrites": [
-    {
-      "source": "/service-worker.js",
-      "destination": "/uv.sw.js"
-    },
-    {
-      "source": "/uv.bundle.js",
-      "destination": "/uv.bundle.js"
-    },
-    {
-      "source": "/uv.handler.js",
-      "destination": "/uv.handler.js"
-    },
-    {
-      "source": "/uv.client.js",
-      "destination": "/uv.client.js"
-    },
-    {
-      "source": "/",
-      "destination": "/index.html"
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
+  "functions": {
+    "uv.handler.js": {
+      "runtime": "nodejs18.x"
     }
+  },
+  "routes": [
+    { "src": "/uv.handler.js", "dest": "/uv.handler.js" },
+    { "src": "/service-worker.js", "dest": "/uv.sw.js" },
+    { "src": "/(.*)", "dest": "/uv.handler.js" }
   ]
 }
