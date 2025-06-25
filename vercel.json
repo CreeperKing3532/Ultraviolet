@@ -7,8 +7,9 @@
     }
   ],
   "routes": [
-    { "src": "/uv.handler.js", "dest": "/uv.handler.js" },
+    { "handle": "filesystem" },
     { "src": "/service-worker.js", "dest": "/uv.sw.js" },
+    { "src": "/uv.handler.js", "dest": "/uv.handler.js" },
     { "src": "/(.*)", "dest": "/uv.handler.js" }
   ]
 }
