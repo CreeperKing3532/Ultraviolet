@@ -1,10 +1,11 @@
 {
   "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
-  "functions": {
-    "uv.handler.js": {
-      "runtime": "@vercel/node"
+  "builds": [
+    {
+      "src": "uv.handler.js",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
     { "src": "/uv.handler.js", "dest": "/uv.handler.js" },
     { "src": "/service-worker.js", "dest": "/uv.sw.js" },
