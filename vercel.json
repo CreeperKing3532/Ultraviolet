@@ -2,7 +2,7 @@
   "buildCommand": "pnpm install --no-frozen-lockfile && pnpm run build",
   "functions": {
     "uv.handler.js": {
-      "runtime": "nodejs18.x"
+      "runtime": "@vercel/node"
     }
   },
   "routes": [
